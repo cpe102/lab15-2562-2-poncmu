@@ -23,5 +23,35 @@ int main(){
 	findRowSum(dPtr,result,N,M);
 	showData(result,N,1);
 }
+void randData(double *p,int N,int M)
+{
+      for(int i=0;i<N*M;i++)
+	  {
+		  *(p+i)=(rand()%100)/100.00;
+	  }
+}
 
-//Write definition of randData(), showData() and findRowSum()
+void findRowSum(const double *p,double *result,int N ,int M)
+{
+        int j=0;
+		for(int i=0;i<N*M;i++)
+		{
+			*(result+j)=*(result+j)+*(p+i);
+			if(i%M==M-1) j++;
+		}
+}
+
+void showData(double *p,int N,int M)
+{
+        int c=0;
+		for(int i=0;i<N;i++)
+		{
+			for(int j=0;j<M;j++)
+			{
+                   cout<<*(p+c)<<" ";
+				   c++;
+			}
+			cout<<endl;
+		}
+
+}
